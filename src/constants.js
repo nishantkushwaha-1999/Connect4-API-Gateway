@@ -1,0 +1,1 @@
+export const viewsLogPath = "/Volumes/Storage/Git Repos/Connect4 Server/data/stats.json";
