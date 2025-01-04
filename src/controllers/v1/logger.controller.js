@@ -22,7 +22,7 @@ export const getGameStatLogs = asyncHandler(async (req, res) => {
 });
 
 export const pageVisit = asyncHandler(async (req, res) => {
-    console.log(req.json());
+    console.log(req);
     try {
         let gameStatLogs = JSON.parse(await fs.readFile(process.env.VIEWS_LOG_PATH, 'utf-8'));
         gameStatLogs.pageVisits += 1;
