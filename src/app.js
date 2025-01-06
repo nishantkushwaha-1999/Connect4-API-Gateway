@@ -1,10 +1,11 @@
 import cors from "cors";
 import express from "express";
+import { corsOrigins } from "constants.js"
 
 const app = express();
 
 app.use(cors({
-    origin: [process.env.CORS_HTTPS_ORIGIN, process.env.CORS_HTTP_ORIGIN, process.env.CORS_DEV_ORIGIN],
+    origin: corsOrigins,
     credentials: false
 }));
 console.log("Allowed Origins:\n", process.env.CORS_HTTPS_ORIGIN, "\n", process.env.CORS_HTTP_ORIGIN, "\n", 
