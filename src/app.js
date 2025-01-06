@@ -4,7 +4,7 @@ import express from "express";
 const app = express();
 
 app.use(cors({
-    origin: "*",
+    origin: [process.env.CORS_HTTPS_ORIGIN, process.env.CORD_HTTP_ORIGIN],
     credentials: false
 }));
 
