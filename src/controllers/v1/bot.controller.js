@@ -5,6 +5,7 @@ import { ApiResponse } from "../../utils/apiResponse.js";
 
 export const getBotMove = asyncHandler(async (req, res) => {
     const botMove = await Math.floor(Math.random() * 14);
+    console.log(botMove);
     
     if (!botMove) {
         throw new ApiError(500, `Something went wrong on the server`);
