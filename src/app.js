@@ -1,6 +1,6 @@
 import cors from "cors";
 import express from "express";
-import { corsOrigins } from "constants.js"
+import { corsOrigins } from "./constantss.js"
 
 const app = express();
 
@@ -8,9 +8,7 @@ app.use(cors({
     origin: corsOrigins,
     credentials: false
 }));
-console.log("Allowed Origins:\n", process.env.CORS_HTTPS_ORIGIN, "\n", process.env.CORS_HTTP_ORIGIN, "\n", 
-    process.env.CORS_DEV_ORIGIN, "\n"
-)
+console.log("Allowed Origins:\n", corsOrigins)
 
 app.use(express.json({limit: "16kb"}))
 app.use(express.urlencoded({extended: true, limit: "16kb"}))
