@@ -1,9 +1,6 @@
 import { ApiError } from "../../utils/apiError.js"
 import { asyncHandler } from "../../utils/asyncHandler.js";
 import { ApiResponse } from "../../utils/apiResponse.js";
-import jwt from "jsonwebtoken";
-
-import { GameStatsLogs } from "../../models/gameStatsLogModel.js";
 import { promises as fs } from "fs";
 
 

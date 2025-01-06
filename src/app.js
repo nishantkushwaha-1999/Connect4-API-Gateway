@@ -6,6 +6,7 @@ const app = express();
 
 app.use(cors({
     origin: function(origin, callback) {
+        console.log(origin);
         if(corsOrigins.indexOf(origin) !== -1 || !origin) {
             callback(null, true);
         } else {
