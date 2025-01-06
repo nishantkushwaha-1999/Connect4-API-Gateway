@@ -6,10 +6,10 @@ const app = express();
 
 app.use(cors({
     origin: function(origin, callback) {
-        if(corsOrigins.indexOf(origin) !== -1) {
+        if(corsOrigins.indexOf(origin) !== -1 || !origin) {
             callback(null, true);
         } else {
-            callback(new Error("Not allowed by CORS"));
+            callback(new Error("Not allowed by CORS. Only valid domains allowed!!"));
         }
     },
     credentials: false
