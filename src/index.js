@@ -14,7 +14,7 @@ const httpsServer = createHTTPSServer({
 }, app)
 
 httpsServer.listen(httpsPORT, () => {
-    console.log(`⚙️ HTTPS Server is running on PORT: ${httpsPORT} \n      https://localhost:${httpsPORT} \n`)
+    console.log(`⚙️ HTTPS Server is running on PORT: ${httpsPORT} \n      https://personlprojectsnk.com \n`)
 });
 
 // HTTP Server
