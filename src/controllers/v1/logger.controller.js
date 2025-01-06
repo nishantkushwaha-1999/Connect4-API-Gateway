@@ -28,11 +28,12 @@ export const pageVisit = asyncHandler(async (req, res) => {
         gameStatLogs.pageVisits += 1;
 
         fs.writeFile(process.env.VIEWS_LOG_PATH, JSON.stringify(gameStatLogs))
-        return res
+        const a = res
             .status(200)
             .json(
                 new ApiResponse(200, gameStatLogs, "Fetched logs")
-            )
+            );
+        return a
     } catch (error) {
         console.log("       Error reading data:\n", process.env.VIEWS_LOG_PATH, "\n", error);
         throw new ApiError(500, `Something went wrong on the server.`);

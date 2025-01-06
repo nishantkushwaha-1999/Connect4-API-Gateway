@@ -1,17 +1,23 @@
 import {app} from './app.js'
-import { createServer } from "https";
+import { createServer as createHTTPSServer } from "https";
 import { readFileSync } from 'fs';
 import dotenv from "dotenv"
 dotenv.config({
     path: './src/.env'
 })
 
-const port = process.env.PORT;
-const server = createServer({
+// HTTPS Server
+const httpsPORT = process.env.HTTPS_PORT;
+const httpsServer = createHTTPSServer({
     key: readFileSync(process.env.SSL_KEY_PATH),
     cert: readFileSync(process.env.SSL_CERT_PATH)
 }, app)
 
-server.listen(port, () => {
-    console.log(`⚙️ Server is running on PORT: ${port} \n      https://localhost:${port}`)
+httpsServer.listen(httpsPORT, () => {
+    console.log(`⚙️ HTTPS Server is running on PORT: ${httpsPORT} \n      https://localhost:${httpsPORT} \n`)
 });
+
+// HTTP Server
+const httpPORT = process.env.HTTP_PORT;
+app.listen(httpPORT)
+console.log(`⚙️ Server is running on PORT: ${httpPORT} \n      http://localhost:${httpPORT}`)
