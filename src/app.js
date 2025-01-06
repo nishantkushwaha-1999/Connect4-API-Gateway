@@ -5,7 +5,13 @@ import { corsOrigins } from "./constantss.js"
 const app = express();
 
 app.use(cors({
-    origin: corsOrigins,
+    origin: function(origin, callback) {
+        if(corsOrigins.indexOf(origin) !== -1) {
+            callback(null, true);
+        } else {
+            callback(new Error("Not allowed by CORS"));
+        }
+    },
     credentials: false
 }));
 console.log("Allowed Origins:\n", corsOrigins)
