@@ -4,7 +4,7 @@ import { ApiResponse } from "../../utils/apiResponse.js";
 
 
 export const getBotMove = asyncHandler(async (req, res) => {
-    const botMove = await Math.floor(Math.random() * 13);
+    const botMove = Math.floor(Math.random() * 13);
     console.log(botMove);
     
     if (botMove < 0 && botMove > 13) {
